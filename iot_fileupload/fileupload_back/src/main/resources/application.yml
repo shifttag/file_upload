@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pymysql_study
+    username: root
+    password: hongdong2@
+
+  multipart:
+    max-file-size: 100MB
+    max-request-size: 100MB
+    enable: true
+
+mybatis:
+  mapper-locations:
+    - /mappers/*.xml
+
+root:
+  path: C:\Users\ehdgu\OneDrive\바탕 화면\국비 수업\korea\upload\profile

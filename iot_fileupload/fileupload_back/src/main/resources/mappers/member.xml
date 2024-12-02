@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.korit.fileupload_back.mapper.MemberMapper">
+<!--    밑에 selectMemberById 와 매칭시킬수 있도록 id와 result 태그 생성 -->
+    <resultMap id="memberResultMap" type="com.korit.fileupload_back.entity.Member">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="profileImgPath" column="profile_img_path" />
+    </resultMap>
+
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into member_tb values(default, #{name}, #{profileImgPath})
+    </insert>
+
+    <select id="selectMemberById" resultMap="memberResultMap">
+        select
+            id,
+            name,
+            profile_img_path
+        from
+            member_tb
+        where
+            id = #{id}
+    </select>
+
+
+</mapper>
